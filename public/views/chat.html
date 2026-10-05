@@ -1,0 +1,93 @@
+<div class="app-shell" id="chatApp" hidden>
+    <aside class="sidebar" id="roomSidebar" aria-label="Chat workspace">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">c.</span><span class="brand-name">commonroom</span></div>
+        <p class="workspace-label">Your rooms</p>
+        <nav class="room-list" id="roomList" aria-label="Chat rooms"></nav>
+        <form class="add-room" id="addRoomForm">
+            <input id="newRoom" type="text" maxlength="32" placeholder="Create or join a room" aria-label="New room name">
+            <button type="submit" aria-label="Join room" title="Join room">+</button>
+        </form>
+        <div class="sidebar-spacer"></div>
+        <section class="profile" aria-label="Your profile">
+            <label class="profile-label" for="username">Your name</label>
+            <div class="profile-row">
+                <span class="avatar" id="profileAvatar" aria-hidden="true">Y</span>
+                <input class="profile-name" id="username" maxlength="24" placeholder="Your name" aria-label="Your display name">
+            </div>
+            <button class="profile-save" id="saveName" type="button">Save name</button>
+        </section>
+    </aside>
+    <main class="main-panel">
+        <header class="topbar">
+            <div class="room-heading">
+                <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="roomSidebar" aria-expanded="true" aria-label="Hide room sidebar" title="Hide room sidebar">☰</button>
+                <span class="room-heading-hash" aria-hidden="true">#</span>
+                <div><h1 class="room-title" id="roomTitle">general</h1><p class="room-subtitle">A good place to say hello.</p></div>
+            </div>
+            <div class="topbar-meta">
+                <button class="online-count" id="membersToggle" type="button" aria-controls="membersPanel" aria-expanded="true" aria-label="Hide people sidebar" title="Hide people sidebar"><span class="members-toggle-icon" aria-hidden="true">☷</span><span class="members-toggle-label">People</span><span class="online-dot" aria-hidden="true"></span><span id="onlineCount">1 here</span></button>
+                <span class="connection" id="connection" data-state="connecting"><span class="connection-dot" aria-hidden="true"></span><span id="connectionText">Connecting</span></span>
+                <button class="video-call-button" id="videoCallButton" type="button">Start call</button>
+                <button class="logout-button" id="signOut" type="button">Sign out</button>
+            </div>
+        </header>
+        <div class="workspace-body" id="workspaceBody">
+            <section class="video-call-panel" id="videoCallPanel" aria-label="Video call" hidden>
+                <header class="video-call-header">
+                    <div>
+                        <h2 class="video-call-title" id="videoCallTitle">Room call</h2>
+                        <p class="video-call-status" id="videoCallStatus" role="status" aria-live="polite">Starting call...</p>
+                    </div>
+                    <div class="video-call-controls">
+                        <button class="call-control" id="microphoneButton" type="button" aria-pressed="true">Mute mic</button>
+                        <button class="call-control" id="cameraButton" type="button" aria-pressed="true">Turn camera off</button>
+                        <button class="call-control leave-call" id="leaveCallButton" type="button">Leave call</button>
+                    </div>
+                </header>
+                <div class="video-grid" id="videoGrid" aria-live="polite"></div>
+            </section>
+            <section class="chat-column" aria-label="Room chat">
+                <div class="chat-content" id="chatContent">
+                    <section class="conversation" id="conversation" aria-label="Room messages" aria-live="polite">
+                        <div class="welcome" id="welcome">
+                                <div class="welcome-copy">
+                                    <p class="welcome-eyebrow">COMMONROOM / <span id="welcomeRoomName">GENERAL</span></p>
+                                    <h2 id="welcomeTitle">Welcome to #general</h2>
+                                    <p class="welcome-description">No messages have landed here yet. Every good conversation starts somewhere.</p>
+                                    <div class="welcome-status"><span class="welcome-status-dot" aria-hidden="true"></span><span>Room is open</span></div>
+                                </div>
+                                <figure class="welcome-visual">
+                                    <img src="/images/room-collaboration.jpg" alt="Colleagues gathered around a table working together" width="1000" height="1500">
+                                    <figcaption>A little room for big ideas.</figcaption>
+                                </figure>
+                        </div>
+                        <ul class="message-list" id="messages"></ul>
+                        <p class="typing-indicator" id="typingIndicator" aria-live="polite"></p>
+                    </section>
+                    <aside class="members-panel" id="membersPanel" aria-label="People in this room">
+                            <section class="room-details" aria-labelledby="roomDetailsTitle">
+                                <p class="room-details-label">ROOM SNAPSHOT</p>
+                                <img class="room-cover" id="roomCover" src="/images/room-collaboration.jpg" alt="Colleagues gathered around a table working together" width="1000" height="1500">
+                                <h2 class="room-details-title" id="roomDetailsTitle">#general</h2>
+                                <p class="room-description" id="roomDescription">An open space for day-to-day conversation.</p>
+                            </section>
+                            <section class="members-section" aria-labelledby="membersHeading">
+                                <h2 class="members-heading" id="membersHeading">In this room</h2>
+                                <ul class="members-list" id="membersList"></ul>
+                            </section>
+                    </aside>
+                </div>
+                <footer class="composer-wrap">
+                    <p class="upload-status" id="uploadStatus" role="status" aria-live="polite"></p>
+                    <form class="composer" id="messageForm">
+                        <button class="attach-button" id="attachButton" type="button" aria-label="Attach a file" title="Attach a file" disabled>+</button>
+                        <input id="fileInput" type="file" hidden>
+                        <textarea class="composer-input" id="message" rows="1" maxlength="2000" placeholder="Message #general" aria-label="Write a message"></textarea>
+                        <button class="send-button" id="send" type="submit" aria-label="Send message" title="Send message">↑</button>
+                    </form>
+                    <p class="composer-hint">Enter to send <span aria-hidden="true">·</span> Shift + Enter for a new line</p>
+                </footer>
+            </section>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,21 @@
+:root {
+    color-scheme: light;
+    --ink: #1e2a24;
+    --muted: #75827a;
+    --line: #e2e9e4;
+    --paper: #ffffff;
+    --canvas: #f1f5f2;
+    --green: #176b56;
+    --green-dark: #104b3d;
+    --green-soft: #e5f3eb;
+    --coral: #ef9877;
+    font-family: "DM Sans", sans-serif;
+    color: var(--ink);
+    background: var(--canvas);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
